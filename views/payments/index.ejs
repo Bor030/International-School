@@ -1,0 +1,50 @@
+<%- include('../partials/head') %>
+    <%- include('../partials/navbar') %>
+
+        <div class="row">
+            <div class="col-6">
+                <h1>All payments <span class="
+                    badge bg-danger"><%= sum.total %>
+                </h1>
+            </div>
+        
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-8 offset-2">
+          
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Student</th>
+                                    <th>Course</th>
+                                    <th>Amount</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% payments.forEach(payment=> { %>
+                                    <tr>
+                                        <td>
+                                            <%= payment.first_name %> 
+                                            <%= payment.last_name %>
+                                        </td>
+                                        <td>
+                                            <%= payment.title %>
+                                        </td>
+                                        <td>
+                                            <%= payment.amount %>
+                                        </td>
+                                       
+                                        <td>
+                                            <a href="/students/show/<%= payment.student_id %>" class="btn btn-primary">View</a>
+                                        </td>
+                                    </tr>
+                                    <% }) %>
+                            </tbody>
+                        </table>
+                </div>
+
+            </div>
+        </div>
+        <%- include('../partials/bottom') %>

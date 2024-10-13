@@ -1,0 +1,45 @@
+<%- include('../partials/head') %>
+    <%- include('../partials/navbar') %>
+
+        <div class="row">
+            <div class="col-6">
+                <h1>All courses
+                </h1>
+            </div>
+            <div class="col-6 d-flex justify-content-end align-items-center">
+                <a href="/courses/create" class="btn btn-danger me-3">New</a>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-8 offset-2">
+                   <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Instructor</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% courses.forEach(course=> { %>
+                                <tr>
+                                    <td>
+                                        <%= course.title %>
+                                    </td>
+                                    <td>
+                                        <%= course.instructor %>
+                                    </td>
+                                    <td>
+                                        <a href="/courses/show/<%= course.course_id %>" class="btn btn-warning btn-sm">All Students</a>
+                                    </td>
+                                </tr>
+                                <% }) %>
+                        </tbody>
+                   </table> 
+                    
+                </div>
+
+            </div>
+        </div>
+        <%- include('../partials/bottom') %>

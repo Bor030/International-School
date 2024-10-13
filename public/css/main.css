@@ -1,0 +1,10 @@
+body{
+
+    font-family: 'Lato', sans-serif;
+    background-color: #f8fff8;
+   
+}
+.nav-link.active {
+
+    color: orange !important
+}
