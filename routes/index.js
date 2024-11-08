@@ -2,6 +2,9 @@ const express = require('express')
 
 
 const router = express.Router()
+router.use(['/students', '/courses', '/enrollments', '/payments'], (req, res, next) => {
+    req.session.hasOwnProperty('user') ? next() : res.redirect('/')
+})
 
 router.use('/', require('./home-route'))
 router.use('/students', require('./students-route'))

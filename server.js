@@ -13,7 +13,9 @@ app.use(express.static(__dirname + '/node_modules/bootstrap-icons/font'))
 
 app.use(session({secret: 'secret',
                  resave: false,
-                 saveUninitialized: false}))
+                 saveUninitialized: true,
+                 cookie: {secure: false, maxAge: 600000}            
+                }))
                  
 app.use('/', require('./routes'))
 app.listen(process.env.PORT, () => {console.log('server radi')})
